@@ -22,22 +22,20 @@ def screengrab():
 
 def click(x, y):
     win.set_focus()
-    time.sleep(0.04)
+    time.sleep(0.05)
     pos = win.rectangle()
     #pywinauto.mouse.click doesn't work
     pywinauto.mouse.press(coords=(pos.left + x, pos.top + y))
-    time.sleep(0.04)
+    time.sleep(0.05)
     pywinauto.mouse.release(coords=(pos.left + x, pos.top + y))
-    time.sleep(0.04)
+    time.sleep(0.05)
 
 def drag_drop(x0, y0, x1, y1):
     win.set_focus()
-    time.sleep(0.04)
+    time.sleep(0.05)
     pos = win.rectangle()
     a = np.array([x0, y0])
     b = np.array([x1, y1])
-    d = np.linalg.norm(a-b)
-    #dt = max(0.001, duration/d)
     dt = 0.015
     steps = 2
 
@@ -105,7 +103,7 @@ def continue_handler(x):
         continuous = not continuous
 
 def quit_handler(x):
-    os._exit()
+    os._exit(1)
 
 def interactive():
     hk.register(('q',), callback=quit_handler)

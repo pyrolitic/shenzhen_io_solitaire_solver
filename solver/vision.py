@@ -118,12 +118,12 @@ def extract_cap(cap):
 
 def load_ground():
     syms = """\
-    1b 1g 1r 2b 2g 2r 3b 3g
-    3r 4b 4g 4r 5b 5g 5r 6b
-    6g 6r 7b 7g 7r 8b 8g 8r
-    9b 9g 9r BL Bl ES GR RE
-    RO WH XX B0""".replace("\t", "")
-    syms = [l.split(' ') for l in syms.split('\n')]
+    1b,1g,1r,2b,2g,2r,3b,3g
+    3r,4b,4g,4r,5b,5g,5r,6b
+    6g,6r,7b,7g,7r,8b,8g,8r
+    9b,9g,9r,BL,Bl,ES,GR,RE
+    RO,WH,XX,B0"""
+    syms = [l.strip().split(',') for l in syms.split('\n')]
     
     ground_im = Im.open("shenzhen_ground.png").convert("RGB")
     
