@@ -1,0 +1,6 @@
+imagehash >= 4.2.0
+numpy >= 1.0.0
+astar >= 0.93
+pywinauto >= 0.6.0
+system_hotkey >= 1.0.0
+pillow >= 8.0.0
