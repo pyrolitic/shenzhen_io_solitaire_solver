@@ -123,7 +123,7 @@ def auto():
     hk.register(('q',), callback=quit_handler)
     for _ in range(20):
         try:
-            click(newgame)
+            click(newgame[0], newgame[1])
             time.sleep(6)
             solve_new()
             while moves:
