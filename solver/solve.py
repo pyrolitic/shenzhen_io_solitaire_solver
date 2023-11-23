@@ -126,10 +126,18 @@ class State(object):
         def canStackOnto(v):
             for di in range(3):
                 d = self.dst[di]
-                if d != 'BL':
-                    #see if there's any card remaining that can possibly be stacked _onto_ v
-                    if d[1] != v[1] and int(v[0]) > int(d[0])-1:
-                        return True
+
+                # 2's automatically stack
+                if d[1] == v[1] and int(v[0]) == 2:
+                    return False
+
+                # If there's a blank dst, there is for sure a card remaining that can stack _onto_ v
+                if d == 'BL':
+                    return True
+
+                # See if there's any card remaining that can possibly be stacked _onto_ v
+                if d[1] != v[1] and int(v[0]) > int(d[0])+1:
+                    return True
             return False
 
         for ci in range(num_cols):
