@@ -77,7 +77,7 @@ def solve_step(singlestep):
 
     if mv is None:
         if not singlestep:
-            time.sleep(0.75)
+            time.sleep(0.25)
     else:
         a, b = mv
         if b is None:
@@ -119,7 +119,8 @@ def interactive():
 
 def auto():
     hk.register(('q',), callback=quit_handler)
-    for _ in range(20):
+    for i in range(20):
+        print("playing game %d" % (i+1))
         try:
             click(newgame[0], newgame[1])
             time.sleep(6)
@@ -127,6 +128,7 @@ def auto():
             while moves:
                 solve_step(False)
                 time.sleep(0.1)
+            print("finished game %d" % (i+1))
             time.sleep(6)
         except:
             continue
